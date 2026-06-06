@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Was weißt du über Mediation?</title>
+<meta property="og:title" content="Was weißt du über Mediation?">
+<meta property="og:description" content="Kurzer Selbsttest (ca. 3 min) von Mediatorinnen in Vorarlberg – anonym, unverbindlich und vielleicht überraschend relevant für dich.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy:     #02426C;
+    --navy-mid: #1a5a80;
+    --navy-lt:  #9DB5C7;
+    --teal:     #467b6a;
+    --teal-mid: #3a6659;
+    --teal-lt:  #d8f3dc;
+    --teal-bg:  #edf8f0;
+    --bg:       #E9E5E6;
+    --card:     #FFFFFF;
+    --ink:      #1a1a2e;
+    --muted:    #6b7280;
+    --border:   #d4cec9;
+    --red:      #b91c1c;
+    --red-lt:   #fee2e2;
+    --radius:   14px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 28px 16px 60px;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; top: -100px; right: -80px;
+    width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, #9DB5C7 0%, transparent 70%);
+    opacity: 0.35; pointer-events: none;
+  }
+  body::after {
+    content: '';
+    position: fixed; bottom: -80px; left: -60px;
+    width: 260px; height: 260px; border-radius: 50%;
+    background: radial-gradient(circle, #d0f0ec 0%, transparent 70%);
+    opacity: 0.6; pointer-events: none;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    text-align: center;
+    max-width: 580px;
+    width: 100%;
+    margin-bottom: 28px;
+    animation: fadeUp 0.5s ease both;
+  }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px; font-weight: 500; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--teal-mid); background: var(--teal-lt);
+    border: 1px solid var(--teal);
+    padding: 5px 14px; border-radius: 100px; margin-bottom: 14px;
+  }
+
+  .header h1 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(26px, 5vw, 40px);
+    font-weight: 900; line-height: 1.15; color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .header h1 em { font-style: italic; color: var(--teal); }
+
+  .header p {
+    font-size: 15px; color: var(--muted); line-height: 1.65;
+    max-width: 460px; margin: 0 auto 14px;
+  }
+
+  .hdr-meta {
+    display: flex; align-items: center; justify-content: center;
+    gap: 14px; flex-wrap: wrap;
+  }
+
+  .spoiler-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--teal-lt); border: 1px solid var(--teal);
+    border-radius: 100px; padding: 5px 14px;
+    font-size: 13px; color: var(--teal-mid);
+  }
+  .spoiler-tag s { opacity: 0.5; }
+  .spoiler-tag strong { color: var(--navy); }
+
+  .hdr-link {
+    font-size: 13px; color: var(--navy-lt);
+    text-decoration: none; border-bottom: 1px solid var(--navy-lt);
+    padding-bottom: 1px; transition: color .2s, border-color .2s;
+  }
+  .hdr-link:hover { color: var(--navy); border-color: var(--navy); }
+
+  /* ── PROGRESS ── */
+  .progress-wrap {
+    max-width: 580px; width: 100%;
+    margin-bottom: 20px;
+    animation: fadeUp 0.5s ease both 0.1s;
+  }
+
+  .progress-meta {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--muted); margin-bottom: 6px;
+  }
+
+  .progress-track {
+    height: 5px; background: var(--teal-lt);
+    border-radius: 100px; overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%; background: var(--teal);
+    border-radius: 100px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  /* ── CARD ── */
+  .card {
+    background: var(--card);
+    border-radius: var(--radius);
+    padding: 32px 36px;
+    max-width: 580px; width: 100%;
+    box-shadow: 0 4px 28px rgba(2,66,108,0.1), 0 1px 4px rgba(0,0,0,0.04);
+    border: 1px solid rgba(2,66,108,0.07);
+    animation: fadeUp 0.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .q-num {
+    font-size: 11px; font-weight: 500; letter-spacing: 1.8px;
+    text-transform: uppercase; color: var(--teal); margin-bottom: 8px;
+  }
+
+  .q-text {
+    font-family: 'DM Sans', sans-serif;
+    font-size: clamp(17px, 2.5vw, 21px);
+    font-weight: 700; line-height: 1.4; color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .q-hint {
+    font-size: 13px; color: var(--muted); line-height: 1.5;
+    margin-bottom: 22px;
+  }
+
+  /* ── OPTIONS ── */
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: border-color 0.18s, background 0.18s, transform 0.12s;
+    background: white; text-align: left;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; line-height: 1.45; color: var(--ink);
+    width: 100%;
+  }
+
+  .opt:hover:not(:disabled) {
+    border-color: var(--teal); background: var(--teal-bg);
+    transform: translateX(4px);
+  }
+
+  .opt .marker {
+    flex-shrink: 0; width: 22px; height: 22px;
+    border-radius: 50%; border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; margin-top: 1px;
+    transition: all 0.2s;
+  }
+
+  .opt.multi .marker { border-radius: 5px; }
+
+  .opt.selected .marker {
+    background: var(--teal); border-color: var(--teal); color: white;
+  }
+  .opt.selected { border-color: var(--teal); background: var(--teal-bg); }
+
+  .opt.correct { border-color: var(--teal); background: var(--teal-lt); }
+  .opt.correct .marker { background: var(--teal); border-color: var(--teal); color: white; }
+
+  .opt.wrong { border-color: var(--red); background: var(--red-lt); }
+  .opt.wrong .marker { background: var(--red); border-color: var(--red); color: white; }
+
+  .opt.missed { border-color: var(--teal); background: var(--teal-bg); }
+  .opt.missed .marker { background: var(--teal); border-color: var(--teal); color: white; opacity: 0.6; }
+
+  .opt:disabled { cursor: default; transform: none !important; }
+
+  /* ── MULTI HINT ── */
+  .multi-hint {
+    font-size: 12px; color: var(--teal-mid);
+    background: var(--teal-lt); border-radius: 6px;
+    padding: 6px 12px; margin-bottom: 14px;
+    display: inline-block;
+  }
+
+  /* ── FEEDBACK ── */
+  .feedback {
+    display: none; margin-top: 18px;
+    padding: 14px 18px;
+    border-radius: 10px;
+    font-size: 13.5px; line-height: 1.65;
+    animation: fadeUp 0.3s ease;
+    border-left: 3px solid transparent;
+  }
+  .feedback.show { display: block; }
+  .feedback.ok  { background: var(--teal-lt); border-color: var(--teal); color: #0d4a44; }
+  .feedback.err { background: var(--red-lt);  border-color: var(--red);  color: #7f1d1d; }
+
+  /* ── BUTTONS ── */
+  .btn-primary {
+    display: block; width: 100%;
+    background: var(--navy); color: white;
+    border: none; border-radius: 10px;
+    padding: 15px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    margin-top: 20px;
+  }
+  .btn-primary:hover { background: var(--navy-mid); transform: translateY(-1px); }
+  .btn-primary:disabled { opacity: 0.4; cursor: default; transform: none; }
+
+  /* ── SCALE ── */
+  .scale-wrap { margin: 8px 0 4px; }
+
+  .scale-labels {
+    display: flex; justify-content: space-between;
+    font-size: 12px; color: var(--muted); margin-bottom: 10px;
+  }
+
+  .scale-dots {
+    display: flex; justify-content: space-between; gap: 4px;
+  }
+
+  .scale-dot {
+    flex: 1; aspect-ratio: 1; border-radius: 50%;
+    border: 2px solid var(--border); background: white;
+    cursor: pointer; transition: all 0.18s;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; color: var(--muted); font-weight: 500;
+    min-width: 0; max-width: 44px;
+  }
+  .scale-dot:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .scale-dot.active { background: var(--teal); border-color: var(--teal); color: white; }
+  .scale-dot:disabled { cursor: default; }
+
+  .scale-chosen {
+    text-align: center; margin-top: 12px;
+    font-size: 13px; color: var(--teal-mid);
+    font-weight: 500; min-height: 20px;
+  }
+
+  /* ── RESULT ── */
+  .result-header { text-align: center; margin-bottom: 28px; }
+
+  .score-ring {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 80px; height: 80px; border-radius: 50%;
+    background: var(--navy); color: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px; font-weight: 900;
+    margin-bottom: 16px;
+    box-shadow: 0 8px 32px rgba(2,66,108,0.25);
+  }
+
+  .result-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 24px; font-weight: 700; color: var(--navy);
+    margin-bottom: 10px;
+  }
+
+  .result-sub {
+    color: var(--muted); font-size: 15px; line-height: 1.7;
+    max-width: 440px; margin: 0 auto;
+  }
+
+  .divider { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+  /* ── CONTACT FORM ── */
+  .contact-intro {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px;
+  }
+
+  .contact-sub {
+    font-size: 14px; color: var(--muted); line-height: 1.65; margin-bottom: 20px;
+  }
+
+  .privacy-note {
+    display: flex; align-items: flex-start; gap: 8px;
+    background: var(--teal-lt); border-radius: 8px;
+    padding: 10px 14px; margin-bottom: 18px;
+    font-size: 12.5px; color: var(--teal-mid); line-height: 1.55;
+  }
+
+  .form-group { margin-bottom: 14px; }
+
+  .form-group label {
+    display: block; font-size: 12.5px; font-weight: 500;
+    color: var(--ink); margin-bottom: 5px;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; color: var(--ink); background: white;
+    transition: border-color 0.2s; outline: none;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: var(--teal); }
+  .form-group input::placeholder { color: #b0b8c1; }
+  .form-group textarea { resize: vertical; min-height: 75px; }
+
+  /* Themen checkboxes */
+  .themen-grid {
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .thema-opt {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border); border-radius: 8px;
+    cursor: pointer; transition: border-color .15s, background .15s;
+    font-size: 14px; color: var(--ink);
+    user-select: none;
+  }
+  .thema-opt:hover { border-color: var(--teal); background: var(--teal-bg); }
+  .thema-opt input[type="checkbox"] { display: none; }
+  .thema-check {
+    flex-shrink: 0; width: 18px; height: 18px;
+    border-radius: 4px; border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; transition: all .2s;
+  }
+  .thema-opt.checked { border-color: var(--teal); background: var(--teal-bg); }
+  .thema-opt.checked .thema-check { background: var(--teal); border-color: var(--teal); color: white; }
+
+  .btn-contact {
+    display: block; width: 100%;
+    background: var(--navy); color: white;
+    border: none; border-radius: 10px;
+    padding: 15px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 500;
+    cursor: pointer; margin-top: 4px;
+    transition: background 0.2s, transform 0.1s;
+  }
+  .btn-contact:hover { background: var(--navy-mid); transform: translateY(-1px); }
+
+  .btn-skip {
+    display: flex; align-items: center; justify-content: center;
+    width: 100%; font-size: 14px; font-weight: 500;
+    color: var(--teal-mid); background: var(--teal-lt);
+    border: 1.5px solid var(--teal); border-radius: 10px;
+    cursor: pointer; padding: 13px; margin-top: 10px;
+    transition: background .2s, color .2s;
+    text-decoration: none; font-family: 'DM Sans', sans-serif;
+  }
+  .btn-skip:hover { background: var(--teal); color: white; }
+
+  /* success */
+  .contact-success { text-align: center; padding: 16px 0; }
+  .contact-success .big-check { font-size: 40px; margin-bottom: 10px; }
+  .contact-success h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px; color: var(--navy); margin-bottom: 8px;
+  }
+  .contact-success p { font-size: 14px; color: var(--muted); line-height: 1.7; }
+  .lp-link {
+    display: inline-block; margin-top: 14px;
+    color: var(--teal); font-weight: 500; font-size: 14px; text-decoration: none;
+    border-bottom: 1px solid var(--teal);
+  }
+  .lp-link:hover { opacity: .8; }
+
+  .btn-restart {
+    display: block; width: 100%; text-align: center;
+    background: none; border: 1.5px solid var(--border);
+    border-radius: 10px; padding: 12px;
+    font-family: 'DM Sans', sans-serif; font-size: 14px; color: var(--muted);
+    cursor: pointer; margin-top: 14px; transition: border-color .2s, color .2s;
+  }
+  .btn-restart:hover { border-color: var(--navy); color: var(--navy); }
+
+  @media (max-width: 500px) {
+    .card { padding: 22px 18px; }
+    .scale-dot { font-size: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="tag">Tag der Mediation · 18. Juni</div>
+  <h1>Was weißt du über <em>Mediation</em>?</h1>
+  <p>Dieser kurze Selbsttest (ca. 3 min) ist eine Initiative von Mediatorinnen in Vorarlberg – <strong>anonym</strong>, unverbindlich und vielleicht überraschend relevant für dich.</p>
+  <div class="hdr-meta">
+    <div class="spoiler-tag">
+      <s>Meditation</s> &nbsp;≠&nbsp; <strong>Mediation</strong> &nbsp;😉
+    </div>
+    <a href="https://www.konsenswerkstatt.eu/uber-mich/" class="hdr-link" target="_blank">Wer steckt dahinter? →</a>
+  </div>
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-meta">
+    <span id="progLabel">Frage 1 von 5</span>
+    <span id="progPct">0 %</span>
+  </div>
+  <div class="progress-track">
+    <div class="progress-fill" id="progFill" style="width:0%"></div>
+  </div>
+</div>
+
+<!-- QUIZ CARD -->
+<div class="card" id="quizCard">
+  <div class="q-num" id="qNum"></div>
+  <div class="q-text" id="qText"></div>
+  <div class="q-hint" id="qHint"></div>
+  <div id="qBody"></div>
+  <div class="feedback" id="feedback"></div>
+  <button class="btn-primary" id="nextBtn" style="display:none" onclick="nextStep()">Weiter →</button>
+</div>
+
+<!-- RESULT CARD -->
+<div class="card" id="resultCard" style="display:none">
+  <div class="result-header">
+    <div class="score-ring" id="scoreRing"></div>
+    <div class="result-title" id="resTitle"></div>
+    <div class="result-sub" id="resSub"></div>
+  </div>
+
+  <hr class="divider">
+
+  <div id="contactArea">
+    <div class="contact-intro">Möchtest du mehr erfahren?</div>
+    <div class="contact-sub">Kein Verkaufsgespräch. Kein Druck. Nur ein offenes, kostenloses Erstgespräch – wenn du möchtest.</div>
+
+    <div class="privacy-note">
+      🔒 Deine Daten werden ausschließlich für ein mögliches Erstgespräch genutzt und nicht weitergegeben. Du kannst jederzeit widersprechen.
+    </div>
+
+    <div id="contactForm">
+      <div class="form-group">
+        <label>Wie sollen wir dich nennen? (optional)</label>
+        <input type="text" id="cName" placeholder="Dein Name">
+      </div>
+      <div class="form-group">
+        <label>Telefon (optional)</label>
+        <input type="tel" id="cPhone" placeholder="+43 ...">
+      </div>
+      <div class="form-group">
+        <label>E-Mail-Adresse</label>
+        <input type="email" id="cEmail" placeholder="deine@email.at">
+      </div>
+      <div class="form-group">
+        <label>Themenbereich (optional, Mehrfachauswahl möglich)</label>
+        <div class="themen-grid" id="themenGrid">
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Partnerschaft / Beziehung</span>
+          </label>
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Trennung / Scheidung</span>
+          </label>
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Familie / Freundschaft</span>
+          </label>
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Arbeitsplatz / Kollegen</span>
+          </label>
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Nachbarschaft / Verein</span>
+          </label>
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Erbschaft / Immobilien</span>
+          </label>
+          <label class="thema-opt" onclick="toggleThema(this)">
+            <span class="thema-check"></span>
+            <span>Anderes / generelles Interesse</span>
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Kurze Beschreibung (optional)</label>
+        <textarea id="cMsg" placeholder="Was beschäftigt dich? Völlig unverbindlich …"></textarea>
+      </div>
+      <button class="btn-contact" onclick="submitContact()">
+        Kostenloses Erstgespräch anfragen
+      </button>
+      <a href="https://www.konsenswerkstatt.eu/uber-mich/" class="btn-skip" target="_blank">
+        Ohne Kontaktanfrage – mehr über uns erfahren →
+      </a>
+    </div>
+
+    <div id="contactSuccess" style="display:none">
+      <div class="contact-success">
+        <div class="big-check">🌿</div>
+        <h3>Danke – wir melden uns!</h3>
+        <p>Deine Anfrage ist bei uns angekommen. Eine unserer Mediatorinnen meldet sich persönlich bei dir.<br>
+        <a href="https://www.konsenswerkstatt.eu/uber-mich/" class="lp-link" target="_blank">Mehr über uns → konsenswerkstatt.eu</a></p>
+      </div>
+    </div>
+  </div>
+
+  <button class="btn-restart" onclick="restartQuiz()">↩ Quiz nochmal starten</button>
+</div>
+
+<script>
+// ── LANDINGPAGE URL – hier später austauschen ─────────────────────────────
+const LP = 'https://www.konsenswerkstatt.eu/uber-mich/';
+
+// ── FRAGEN (Q6 entfernt) ──────────────────────────────────────────────────
+const QUESTIONS = [
+  {
+    id: 'q1', type: 'single',
+    num: 'Frage 1 · Wissen',
+    text: 'Was ist Mediation?',
+    hint: 'Es kommt häufig zu Verwechslungen.',
+    opts: [
+      'Eine Tiefenentspannungsmethode mit Atemübungen und Klangschalen',
+      'Ein teures Gerichtsverfahren mit Anwältinnen für beide Parteien',
+      'Eine vertrauliche Methode, Konflikte ohne Gericht zu lösen – schneller, günstiger und nachhaltiger',
+      'Ich dachte, dass ist dasselbe wie Meditation.'
+    ],
+    correct: [2],
+    feedback: {
+      ok:  '✅ Richtig! Mediation ist ein vertrauliches, außergerichtliches Verfahren – geführt von einer neutralen Drittperson. Schneller, günstiger und nachhaltiger als ein Gerichtsverfahren.',
+      err: '❌ Mediation ist keine Entspannungsmethode und auch kein Gericht. Es ist ein vertrauliches, freiwilliges Verfahren zur Konfliktlösung – ohne Richter, ohne Urteil und ohne Verlierer! Und auch kein Klangschalenkonzert. 😉'
+    }
+  },
+  {
+    id: 'q2', type: 'single',
+    num: 'Frage 2 · Wissen',
+    text: 'Welche Aussage über Mediation ist richtig?',
+    hint: 'Es gibt viele Missverständnisse. Hier ist deins vielleicht dabei.',
+    opts: [
+      'Die Mediatorin entscheidet, wer Recht hat',
+      'Mediation ist nur bei Scheidungen sinnvoll',
+      'Beide Seiten erarbeiten gemeinsam die Lösung – und die hält meist länger als ein Urteil',
+      'Mediation ist nur für Großkonzerne und komplexe Rechtsfälle'
+    ],
+    correct: [2],
+    feedback: {
+      ok:  '✅ Genau! Die Lösung kommt von den Beteiligten selbst – nicht vom Gericht. Deshalb wird sie auch eingehalten. Mediation funktioniert übrigens in vielen Lebensbereichen: Familie, Arbeit, Nachbarschaft, Erbschaft …',
+      err: '❌ Eine Mediatorin entscheidet nichts und urteilt nicht. Sie begleitet den Prozess neutral. Und Mediation ist nicht nur für Scheidungen – sie hilft überall dort, wo Menschen in Konflikt geraten.'
+    }
+  },
+  {
+    id: 'q3', type: 'single',
+    num: 'Frage 3 · Fun Fact',
+    text: 'Welche berühmte Band engagierte einen Mediator?',
+    hint: 'Sie konnte so eine Auflösung abwenden und ein neues Album veröffentlichen.',
+    opts: [
+      'Depeche Mode',
+      'Metallica',
+      'The Rolling Stones',
+      'U2'
+    ],
+    correct: [1],
+    feedback: {
+      ok:  '✅ Richtig! Metallica arbeitete von 2001 bis 2003 mit dem Mediator Phil Towle – mitten in einer tiefen Bandkrise. Das Ergebnis: das Album „St. Anger" (2003). Ohne professionelle Unterstützung hätte sich die Band wohl aufgelöst. Mediation funktioniert also sogar bei Heavy Metal. 🤘',
+      err: '❌ Es war Metallica! Die Band stand kurz vor der Auflösung – bis der Mediator Phil Towle half, die internen Konflikte zu lösen. In dieser Zeit entstand das Album St. Anger (2003). Mediation rockt! 🤘'
+    }
+  },
+  {
+    id: 'q4', type: 'scale',
+    num: 'Frage 4 · Selbstreflexion',
+    text: 'Wie hoch ist deine Bereitschaft, einen Konflikt mit Unterstützung einer Mediatorin zu lösen?',
+    hint: 'Denk an einen konkreten Konflikt – beruflich oder privat – und triff deine Entscheidung.',
+    feedback: {
+      ok:  '💚 Super! Der erste Schritt ist oft der schwerste. Ein kostenloses Erstgespräch zeigt dir, ob Mediation für deine Situation passt.',
+      mid: '🤔 Nachvollziehbar. Viele Menschen kommen erst durch ein unverbindliches Gespräch drauf, wie hilfreich Mediation sein kann.',
+      low: '🌱 Kein Problem! Mediation ist Freiwilligkeitssache. Manchmal reicht es, mehr darüber zu wissen – und dann sieht man es anders.'
+    }
+  },
+  {
+    id: 'q5', type: 'multi',
+    num: 'Frage 5 · Dein Weg',
+    text: 'Was würde dir helfen, einen Schritt Richtung Mediation zu machen?',
+    opts: [
+      'Mehr Infos über den genauen Ablauf',
+      'Eine Empfehlung von jemandem, dem ich vertraue',
+      'Die Sicherheit, dass es wirklich vertraulich ist',
+      'Mehr Beispiele, wie Mediation geholfen hat',
+      'Ein kostenloses Erstgespräch ohne Verpflichtung'
+    ],
+    correct: null,
+    feedback: {
+      always: '💡 Gute Neuigkeit: Alles davon können wir dir bieten. Unser kostenloses Erstgespräch ist vertraulich, unverbindlich – und gibt dir ein konkretes Bild, ob Mediation für dich passt.'
+    }
+  }
+];
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+let cur = 0, knowledgeScore = 0, answered = false, selectedMulti = [];
+const GOOGLE_SHEET_URL = 'https://script.google.com/macros/s/AKfycbwrBaEVxP9NIMEBQQwpZWj9OkhMNUTKFg28QkockC01OcZBBqOsGb6t9lOiB1fQY3h2/exec';
+const quizAnswers = {}; // speichert alle Antworten
+
+// ── THEMEN CHECKBOXES ─────────────────────────────────────────────────────
+function toggleThema(el) {
+  el.classList.toggle('checked');
+}
+
+function getSelectedThemen() {
+  return Array.from(document.querySelectorAll('.thema-opt.checked'))
+    .map(el => el.querySelector('span:last-child').textContent);
+}
+
+// ── RENDER ────────────────────────────────────────────────────────────────
+function render() {
+  answered = false; selectedMulti = [];
+  const q = QUESTIONS[cur], total = QUESTIONS.length;
+  const pct = Math.round((cur / total) * 100);
+  document.getElementById('progLabel').textContent = `Frage ${cur + 1} von ${total}`;
+  document.getElementById('progPct').textContent = pct + ' %';
+  document.getElementById('progFill').style.width = pct + '%';
+  document.getElementById('qNum').textContent = q.num;
+  document.getElementById('qText').textContent = q.text;
+  document.getElementById('qHint').textContent = q.hint || '';
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback'; fb.innerHTML = '';
+  const btn = document.getElementById('nextBtn');
+  btn.style.display = 'none';
+  btn.textContent = cur < total - 1 ? 'Weiter →' : 'Auswertung →';
+  const card = document.getElementById('quizCard');
+  card.style.animation = 'none'; void card.offsetHeight; card.style.animation = 'fadeUp 0.4s ease both';
+  const body = document.getElementById('qBody'); body.innerHTML = '';
+  if (q.type === 'single') renderSingle(q, body);
+  else if (q.type === 'multi') renderMulti(q, body);
+  else if (q.type === 'scale') renderScale(q, body);
+}
+
+function renderSingle(q, body) {
+  const wrap = document.createElement('div'); wrap.className = 'options';
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button'); btn.className = 'opt';
+    btn.innerHTML = `<span class="marker">${String.fromCharCode(65 + i)}</span><span>${opt}</span>`;
+    btn.onclick = () => pickSingle(i, q);
+    wrap.appendChild(btn);
+  }); body.appendChild(wrap);
+}
+
+function renderMulti(q, body) {
+  const hint = document.createElement('div'); hint.className = 'multi-hint';
+  hint.textContent = '☑ Mehrere Antworten möglich'; body.appendChild(hint);
+  const wrap = document.createElement('div'); wrap.className = 'options';
+  let conf;
+  q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button'); btn.className = 'opt multi';
+    btn.innerHTML = `<span class="marker"></span><span>${opt}</span>`;
+    btn.onclick = () => toggleMulti(i, btn, conf);
+    wrap.appendChild(btn);
+  }); body.appendChild(wrap);
+  conf = document.createElement('button');
+  conf.className = 'btn-primary'; conf.id = 'multiConfirm';
+  conf.textContent = 'Antwort bestätigen'; conf.disabled = true;
+  conf.onclick = () => confirmMulti(q, conf); body.appendChild(conf);
+}
+
+function renderScale(q, body) {
+  const wrap = document.createElement('div'); wrap.className = 'scale-wrap';
+  const labels = document.createElement('div'); labels.className = 'scale-labels';
+  labels.innerHTML = '<span>keine Bereitschaft</span><span>sehr hoch</span>';
+  wrap.appendChild(labels);
+  const dots = document.createElement('div'); dots.className = 'scale-dots';
+  const chosen = document.createElement('div'); chosen.className = 'scale-chosen'; chosen.id = 'scaleChosen';
+  for (let i = 1; i <= 10; i++) {
+    const dot = document.createElement('button'); dot.className = 'scale-dot'; dot.textContent = i;
+    dot.onclick = () => pickScale(i, dot, q);
+    dots.appendChild(dot);
+  }
+  wrap.appendChild(dots); wrap.appendChild(chosen); body.appendChild(wrap);
+}
+
+// ── INTERACTIONS ──────────────────────────────────────────────────────────
+function pickSingle(i, q) {
+  if (answered) return; answered = true;
+  const btns = document.querySelectorAll('.opt'); btns.forEach(b => b.disabled = true);
+  const isOk = q.correct.includes(i);
+  quizAnswers[q.id] = q.opts[i]; // Antwort speichern
+  if (isOk) {
+    btns[i].classList.add('correct'); btns[i].querySelector('.marker').textContent = '✓';
+    if (q.id === 'q1' || q.id === 'q2' || q.id === 'q3') knowledgeScore++;
+  } else {
+    btns[i].classList.add('wrong'); btns[i].querySelector('.marker').textContent = '✗';
+    q.correct.forEach(ci => { btns[ci].classList.add('missed'); btns[ci].querySelector('.marker').textContent = '✓'; });
+  }
+  showFeedback(isOk ? q.feedback.ok : q.feedback.err, isOk);
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+function toggleMulti(i, btn, conf) {
+  if (answered) return;
+  const idx = selectedMulti.indexOf(i);
+  if (idx === -1) { selectedMulti.push(i); btn.classList.add('selected'); btn.querySelector('.marker').textContent = '✓'; }
+  else { selectedMulti.splice(idx, 1); btn.classList.remove('selected'); btn.querySelector('.marker').textContent = ''; }
+  if (conf) conf.disabled = selectedMulti.length === 0;
+}
+
+function confirmMulti(q, conf) {
+  answered = true;
+  document.querySelectorAll('.opt').forEach(b => b.disabled = true);
+  conf.style.display = 'none';
+  quizAnswers[q.id] = selectedMulti.map(i => q.opts[i]).join(', '); // Antworten speichern
+  showFeedback(q.feedback.always, true);
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+function pickScale(val, dot, q) {
+  if (answered) return;
+  document.querySelectorAll('.scale-dot').forEach(d => d.classList.remove('active'));
+  dot.classList.add('active');
+  const lbs = ['','Sehr niedrig','Niedrig','Eher niedrig','Eher niedrig','Mittel','Eher hoch','Hoch','Hoch','Sehr hoch','Sehr hoch – warum nicht?'];
+  document.getElementById('scaleChosen').textContent = `Du hast gewählt: ${val} – ${lbs[val]}`;
+  quizAnswers[q.id] = `${val} – ${lbs[val]}`; // Antwort speichern
+  answered = true;
+  document.querySelectorAll('.scale-dot').forEach(d => d.disabled = true);
+  let fbText, isOk;
+  if (val >= 7) { fbText = q.feedback.ok; isOk = true; }
+  else if (val >= 4) { fbText = q.feedback.mid; isOk = true; }
+  else { fbText = q.feedback.low; isOk = false; }
+  showFeedback(fbText, isOk);
+  document.getElementById('nextBtn').style.display = 'block';
+}
+
+function showFeedback(text, isOk) {
+  const fb = document.getElementById('feedback');
+  fb.className = 'feedback show ' + (isOk ? 'ok' : 'err');
+  fb.textContent = text;
+}
+
+// ── NAVIGATION ────────────────────────────────────────────────────────────
+function nextStep() {
+  cur++;
+  if (cur < QUESTIONS.length) render(); else showResult();
+}
+
+function showResult() {
+  document.getElementById('progLabel').textContent = 'Fertig!';
+  document.getElementById('progPct').textContent = '100 %';
+  document.getElementById('progFill').style.width = '100%';
+  document.getElementById('quizCard').style.display = 'none';
+  const rc = document.getElementById('resultCard');
+  rc.style.display = 'block'; rc.style.animation = 'fadeUp 0.5s ease both';
+  document.getElementById('scoreRing').textContent = knowledgeScore + '/3';
+  let title, sub;
+  if (knowledgeScore === 3) {
+    title = 'Beeindruckend – du kennst dich aus!';
+    sub = 'Du weißt genau, was Mediation ist und kann. Vielleicht ist sie auch für jemanden in deinem Umfeld der richtige Weg?';
+  } else if (knowledgeScore === 2) {
+    title = 'Gut gemacht – fast perfekt!';
+    sub = 'Du hast ein solides Grundverständnis. Und jetzt weißt du auch: Mediation hat mit Meditation etwa so viel zu tun wie ein Pinguin mit einer Pizza. 🐧';
+  } else {
+    title = 'Gut, dass du dabei warst!';
+    sub = 'Das Quiz hat dir einiges Neues gebracht. Genau deshalb sind wir heute hier – Mediation ist vielen noch unbekannt.';
+  }
+  document.getElementById('resTitle').textContent = title;
+  document.getElementById('resSub').textContent = sub;
+  // Antworten anonym an Google Sheets senden
+  fetch(GOOGLE_SHEET_URL, {
+    method: "POST",
+    mode: "no-cors",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      q1: quizAnswers["q1"] || "-",
+      q2: quizAnswers["q2"] || "-",
+      q3: quizAnswers["q3"] || "-",
+      q4: quizAnswers["q4"] || "-",
+      q5: quizAnswers["q5"] || "-",
+      name: "", email: "", phone: "", themen: "", message: "(anonym)"
+    })
+  });
+}
+
+// ── CONTACT ───────────────────────────────────────────────────────────────
+async function submitContact() {
+  const name  = document.getElementById('cName').value.trim();
+  const email = document.getElementById('cEmail').value.trim();
+  const phone = document.getElementById('cPhone').value.trim();
+  const themen = getSelectedThemen();
+  const msg   = document.getElementById('cMsg').value.trim();
+  if (!email) { alert('Bitte gib deine E-Mail-Adresse an, damit wir dich kontaktieren können.'); return; }
+
+  const payload = {
+    q1: quizAnswers['q1'] || '–',
+    q2: quizAnswers['q2'] || '–',
+    q3: quizAnswers['q3'] || '–',
+    q4: quizAnswers['q4'] || '–',
+    q5: quizAnswers['q5'] || '–',
+    name, email, phone,
+    themen: themen.join(', '),
+    message: msg
+  };
+
+  // An Google Sheets senden
+  fetch(GOOGLE_SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  });
+
+  // Formular ausblenden (no-cors gibt keine Antwort zurück, daher direkt)
+  document.getElementById('contactForm').style.display = 'none';
+  document.getElementById('contactSuccess').style.display = 'block';
+}
+
+function restartQuiz() {
+  cur = 0; knowledgeScore = 0; answered = false; selectedMulti = [];
+  document.getElementById('resultCard').style.display = 'none';
+  document.getElementById('quizCard').style.display = 'block';
+  document.getElementById('contactForm').style.display = 'block';
+  document.getElementById('contactSuccess').style.display = 'none';
+  document.getElementById('contactArea').style.display = 'block';
+  document.querySelectorAll('.thema-opt.checked').forEach(el => el.classList.remove('checked'));
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
